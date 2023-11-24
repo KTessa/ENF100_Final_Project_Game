@@ -1,0 +1,67 @@
+{
+    "tile1": {
+        "data": "hwQQABAAAAAAAACwuwsAAAAAAKu7uwAAAACw+v/PCwAAAKv///+8AACw+v///7wAAKv/////vAAAq/////+8AACr/////7wAAKv/////vAAAq////88LAACr////vAAAALD6//8LAAAAAKu7uwAAAAAAsLsLAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Pothole"
+    },
+    "tile2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgqgAAAAAAAKqqAAAAAAAAqqoAAAAAAACqqgAAAAAAAKqqAAAAAAAAqqoAAAAAAACgygAAAAAAAADMAAAAAAAAAMwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Rocks"
+    },
+    "tile3": {
+        "data": "hwQQABAAAAAAcHd3Z2YAAABwd3d3ZwAAAHB3d3dnAAAAcHd3d2cAAABwd3d3ZwAAAHB3d3dnAAAAAHd3d3cAAAAAcHd3dwAAAAAAd3cHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Bush"
+    },
+    "tile4": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAPD///8AAAAA8P///wAAAADwHxH/AAAAAPAfEf8AAAAA8B8R/wAAAADwHxH/AAAAAPD///8AAAAA8B///wAAAADw//H/AAAAAPD/H/8AAAAA8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Trashcan"
+    },
+    "tile6": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBAAAAAAAQDMEAAAAADA0QwMAAABAMzRDAwAAMDRDMzQDAFA1NEMzNAMAUEUzNEMzBAAAQDM0QzMEAAAAQDM0QwMAAAAAMDRDAwAAAAAAMDQDAAAAAAAAMAQAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Party hat"
+    },
+    "tile8": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIgAAAAAAACIiAgAAAAAgIiIiAAAAACIiIiKysLCwIiIiIgILCwsgIiIiAAAAAAAiIgIAAAAAACAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Balloon0"
+    },
+    "tile9": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQVQAAAAAAAFVVBQAAAABQVVVVAAAAAFVVVVW1sLCwVVVVVQULCwtQVVVVAAAAAABVVQUAAAAAAFBVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Balloon1"
+    },
+    "tile7": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQmQAAAAAAAJmZCQAAAACQmZmZAAAAAJmZmZm5sLCwmZmZmQkLCwuQmZmZAAAAAACZmQkAAAAAAJCZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Balloon3"
+    },
+    "tile10": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAADMzAwAAAAAAmZMFAAAAAAAzMwUAAAAAAJmTBQAAAAAAMzMFAAAAAACZkwUAAAAAADMzBQAAAAAAmZMFAAAAAAAzMwUAAAAAAJmTBQAAAAAAMzMFAAAAAACZkwUAAAAAADMzAwAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "CakeLayer"
+    },
+    "tile12": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAEP8B8RERAAAQ8RHxHx8QERERHxEfHxASEv8fER8fECEREf8R/x8QL///////HxAv//////8REC///////wEQL9//////ARAv3////x8BEC/f////HwAQId//HxERAAARERERAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "myTile"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myTiles"
+    }
+}
