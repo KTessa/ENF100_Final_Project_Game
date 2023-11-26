@@ -1,5 +1,5 @@
 {
-    "name": "BIRTHDAY BASH",
+    "name": "BIRTHDAY BASH 2.0",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -29,5 +29,23 @@
     "supportedTargets": [
         "arcade"
     ],
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "blocksprj",
+    "palette": [
+        "#000000",
+        "#f4f4f4",
+        "#b13e53",
+        "#a7f070",
+        "#F88925",
+        "#ffcd75",
+        "#257179",
+        "#38b764",
+        "#29366f",
+        "#3b5dc9",
+        "#41a6f6",
+        "#566c86",
+        "#333c57",
+        "#94b0c2",
+        "#5d275d",
+        "#1a1c2c"
+    ]
 }
