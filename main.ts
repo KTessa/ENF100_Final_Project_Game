@@ -1,6 +1,12 @@
 namespace SpriteKind {
     export const Car = SpriteKind.create()
 }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    game.gameOver(false)
+})
+sprites.onDestroyed(SpriteKind.Projectile, function (sprite) {
+    info.changeScoreBy(1)
+})
 let projectile: Sprite = null
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -20,7 +26,7 @@ let mySprite = sprites.create(img`
     . . . f f f f f f f f f f . . . 
     . . . . f f . . . f f f . . . . 
     `, SpriteKind.Player)
-mySprite.setPosition(20, 70)
+mySprite.setPosition(20, 82)
 controller.moveSprite(mySprite, 0, 100)
 scene.setBackgroundImage(img`
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
@@ -148,7 +154,7 @@ tiles.setCurrentTilemap(tilemap`level1`)
 music.play(music.createSong(hex`0078000408020100001c00010a006400f4016400000400000000000000000000000000050000040e0008000c0002222918001c00022227`), music.PlaybackMode.InBackground)
 music.play(music.createSoundEffect(WaveShape.Square, 5000, 1, 255, 0, 575, SoundExpressionEffect.None, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
 music.play(music.stringPlayable("C E A E B G C5 E ", 120), music.PlaybackMode.UntilDone)
-game.onUpdateInterval(1658, function () {
+game.onUpdateInterval(2000, function () {
     projectile = sprites.createProjectileFromSide(img`
         ........222222222222277.........
         .......2f7ffff2ffffffff2........
@@ -166,5 +172,29 @@ game.onUpdateInterval(1658, function () {
         ....f9f..fff...f9f........fff...
         .....f....f.....f..........f....
         ................................
-        `, 50, 50)
+        `, randint(200, 50), 0)
+    projectile.setPosition(0, 100)
+    projectile.setFlag(SpriteFlag.AutoDestroy, true)
+})
+game.onUpdateInterval(1658, function () {
+    projectile = sprites.createProjectileFromSide(img`
+        .........772222222222222........
+        ........2ffffffff2ffff7f2.......
+        ........7ffffffff7ffff2ff2......
+        .......2fffbffbb2fffff2ff7......
+        .......7fbbfbbff7fffff2fff7.....
+        ......2bbffbffb2ffffff2fff7.....
+        ......7bbbbbbbb7ffffff7ffff7....
+        ..222222222777767772226722266...
+        .22522222522777677777767777677..
+        .25552225552777767776767777677..
+        .255522255527777677777677767777.
+        .26566666562777f7677776777f7777.
+        ..222222222666f9f66666666f9f66..
+        ...fff........f9f...fff..f9f....
+        ....f..........f.....f....f.....
+        ................................
+        `, randint(-200, -50), 0)
+    projectile.setPosition(155, 65)
+    projectile.setFlag(SpriteFlag.AutoDestroy, true)
 })
