@@ -172,7 +172,8 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
+tiles.setCurrentTilemap(tilemap`level1`)
 music.play(music.createSong(hex`0078000408020100001c00010a006400f4016400000400000000000000000000000000050000040e0008000c0002222918001c00022227`), music.PlaybackMode.InBackground)
 music.play(music.createSoundEffect(WaveShape.Square, 5000, 1, 255, 0, 575, SoundExpressionEffect.None, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
 music.play(music.stringPlayable("C E A E B G C5 E ", 120), music.PlaybackMode.UntilDone)
-controller.moveSprite(mySprite, 100, 100)
+controller.moveSprite(mySprite, 0, 100)
