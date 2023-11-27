@@ -17,36 +17,6 @@
         "tilemapTile": true,
         "displayName": "Bush"
     },
-    "tile4": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAPD///8AAAAA8P///wAAAADwHxH/AAAAAPAfEf8AAAAA8B8R/wAAAADwHxH/AAAAAPD///8AAAAA8B///wAAAADw//H/AAAAAPD/H/8AAAAA8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "Trashcan"
-    },
-    "tile6": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBAAAAAAAQDMEAAAAADA0QwMAAABAMzRDAwAAMDRDMzQDAFA1NEMzNAMAUEUzNEMzBAAAQDM0QzMEAAAAQDM0QwMAAAAAMDRDAwAAAAAAMDQDAAAAAAAAMAQAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "Party hat"
-    },
-    "tile8": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIgAAAAAAACIiAgAAAAAgIiIiAAAAACIiIiKysLCwIiIiIgILCwsgIiIiAAAAAAAiIgIAAAAAACAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "Balloon0"
-    },
-    "tile9": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQVQAAAAAAAFVVBQAAAABQVVVVAAAAAFVVVVW1sLCwVVVVVQULCwtQVVVVAAAAAABVVQUAAAAAAFBVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "Balloon1"
-    },
-    "tile7": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQmQAAAAAAAJmZCQAAAACQmZmZAAAAAJmZmZm5sLCwmZmZmQkLCwuQmZmZAAAAAACZmQkAAAAAAJCZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "tilemapTile": true,
-        "displayName": "Balloon3"
-    },
     "tile10": {
         "data": "hwQQABAAAAAAAAAAAAAAAAAAADMzAwAAAAAAmZMFAAAAAAAzMwUAAAAAAJmTBQAAAAAAMzMFAAAAAACZkwUAAAAAADMzBQAAAAAAmZMFAAAAAAAzMwUAAAAAAJmTBQAAAAAAMzMFAAAAAACZkwUAAAAAADMzAwAAAAAAAAAAAAAAAAAAAAAAAA==",
         "mimeType": "image/x-mkcd-f4",
@@ -58,6 +28,36 @@
         "mimeType": "image/x-mkcd-f4",
         "tilemapTile": true,
         "displayName": "myTile"
+    },
+    "tile7": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACZmQkAAAAAkJmZmQAAAACQmZmZAAAAAJCRmZkMDAwMkJGZmcDAwMCQEZGZAAAAAACZmQkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Balloon3"
+    },
+    "tile9": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABVVQUAAAAAUFVVVQAAAABQVVVVAAAAAFBRVVUMDAwMUFFVVcDAwMBQEVFVAAAAAABVVQUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Balloon1"
+    },
+    "tile4": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAP8AAAAAAADw/wAAAAAAABH/AAAAAAAQEf8AAAAAABAR/wAAAAAAHxH/AAAAAAD///8AAAAAAB///wAAAADw//H/AAAAAPD/H/8AAAAA8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Trashcan"
+    },
+    "tile6": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwBAAAAAAAQDMEAAAAADA0QwMAAAAgMzRDAwAAMCRDMzQDAFA1NEMzNAMAUEUzNEMzBAAAQDM0QzMEAAAAQDM0QwMAAAAAMDRDAwAAAAAAMDQDAAAAAAAAMAQAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Party hat"
+    },
+    "tile8": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzMwMAAAAAMDMzMwAAAAAwMzMzAAAAADAxMzMMDAwMMDEzM8DAwMAwETEzAAAAAAAzMwMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "tilemapTile": true,
+        "displayName": "Balloon0"
     },
     "*": {
         "mimeType": "image/x-mkcd-f4",
