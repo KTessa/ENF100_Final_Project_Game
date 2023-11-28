@@ -12,8 +12,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, ot
 info.onLifeZero(function () {
     game.gameOver(false)
 })
-let projectile: Sprite = null
-let Stray_cat: Sprite = null
+let car2: Sprite = null
+let car1: Sprite = null
+let StrayCat: Sprite = null
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . f f f f f f . . . . . 
@@ -157,20 +158,19 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
-tiles.setCurrentTilemap(tilemap`level1`)
 music.play(music.createSong(hex`00780004080200`), music.PlaybackMode.InBackground)
 music.play(music.createSoundEffect(WaveShape.Square, 5000, 1, 255, 0, 575, SoundExpressionEffect.None, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
 game.setGameOverScoringType(game.ScoringType.HighScore)
 music.play(music.stringPlayable("C E A E B G C5 E ", 120), music.PlaybackMode.UntilDone)
 game.onUpdateInterval(12000, function () {
     for (let index = 0; index < 3; index++) {
-        Stray_cat = sprites.createProjectileFromSide(assets.image`Stray cat`, randint(-200, -50), 0)
-        projectile.setPosition(124, 86)
-        Stray_cat.follow(mySprite)
+        StrayCat = sprites.createProjectileFromSide(assets.image`Stray cat`, randint(-200, -50), 0)
+        StrayCat.setPosition(124, 86)
+        StrayCat.follow(mySprite)
     }
 })
 game.onUpdateInterval(2000, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    car1 = sprites.createProjectileFromSide(img`
         ........222222222222277.........
         .......2f7ffff2ffffffff2........
         ......2ff2ffff7ffffffff7........
@@ -188,11 +188,11 @@ game.onUpdateInterval(2000, function () {
         .....f....f.....f..........f....
         ................................
         `, randint(200, 50), 0)
-    projectile.setPosition(0, 100)
-    projectile.setFlag(SpriteFlag.AutoDestroy, true)
+    car1.setPosition(0, 100)
+    car1.setFlag(SpriteFlag.AutoDestroy, true)
 })
 game.onUpdateInterval(1658, function () {
-    projectile = sprites.createProjectileFromSide(img`
+    car2 = sprites.createProjectileFromSide(img`
         .........772222222222222........
         ........2ffffffff2ffff7f2.......
         ........7ffffffff7ffff2ff2......
@@ -210,6 +210,6 @@ game.onUpdateInterval(1658, function () {
         ....f..........f.....f....f.....
         ................................
         `, randint(-200, -50), 0)
-    projectile.setPosition(155, 65)
-    projectile.setFlag(SpriteFlag.AutoDestroy, true)
+    car2.setPosition(155, 65)
+    car2.setFlag(SpriteFlag.AutoDestroy, true)
 })

@@ -7,10 +7,16 @@ def on_on_destroyed(sprite2):
 sprites.on_destroyed(SpriteKind.projectile, on_on_destroyed)
 
 def on_on_overlap(sprite, otherSprite):
-    game.game_over(False)
+    if info.life() >= 0:
+        info.change_life_by(-1)
 sprites.on_overlap(SpriteKind.player, SpriteKind.projectile, on_on_overlap)
 
+def on_life_zero():
+    game.game_over(False)
+info.on_life_zero(on_life_zero)
+
 projectile: Sprite = None
+Stray_cat: Sprite = None
 mySprite = sprites.create(img("""
         . . . . . . . . . . . . . . . . 
             . . . . . f f f f f f . . . . . 
@@ -32,6 +38,7 @@ mySprite = sprites.create(img("""
     SpriteKind.player)
 mySprite.set_position(20, 82)
 controller.move_sprite(mySprite, 100, 100)
+info.set_life(3)
 scene.set_background_image(img("""
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
         8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888188
@@ -55,27 +62,27 @@ scene.set_background_image(img("""
         888888888888888888888888888888888888bbffffbb888888888888888818888111bbbbbbbbdd1188888881888888888888888888888888888888888888888888888188888888888888888888888888
         88888888888888188888888888888888888bbffffffbb8888188888888888888881111bbbb11111888888888888888888888888888888888888888888888888888888888888888888888888888888888
         8888888888888888888888888888888888bbffffffffbb888888888888888888888811111111188888888888888888888888888888888bbbbbb888888888888888888888888888888888888888888888
-        888bbb888888888888888888888888888bbffffffffffbb88888888888888888888888888888888888888888888888888888888888888bffffb888818888888888888888888888888888881888888888
+        888bbb888888888888888888888888888bbff5ff5ffffbb88888888888888888888888888888888888888888888888888888888888888bffffb888818888888888888888888888888888881888888888
         888bfb88888888888888888888888888bbffffffffffffbb8888888888888888888888888888888888888888888888888888888888888bfeefb888888888888888888888888888888888888888888888
-        88bbfbb888888888888888888888888bbffffffffffffffbb888888888888888888888888888888888888888888888888888888888888bffffb888888888888888888888888888888888888888888888
-        bbbfffbb8888888888888888888888bbffffffffffffffffbb88888888888888888888888888888888888888888888888888818888888bfeefb8888888888888888888888888bbb88888888888888888
-        bbff4ffbb88888888888888888888bbffffffffffffffffffbb88bbbbb8888888bbbbbb88888888888888888888888888888888888888bffffb888888888888888888188888bbfb8888888888bbbbbbb
-        bfffffffbb88bbbb8888888bbbb88bffffffffffffffffffffb88bfffbbbb8888bffffb88888888888888888888888888888888888888bfeefb888888888888888888888888bffbb888888888bffffff
-        fffffffffbb8bffbbbbbb8bbffb8bbffffffffffffffffffffbb8bffffffb8888bffffb888888888bbbbb888888888888888888888888bffffbbb888888888888888888888bbfffbb88888888bffffff
-        ffcfffcfffb8bfffffffbbbfffbbbffffffffffffffffffffffb8bf4ff4fb8888bffffbbbbbb88bbbfffbbb8888888888888888888888bfeefffb888888888888888888888bfffffb88888888bffffff
-        ffcfffcfffb8bff2f2ffbbfffffbbffffffffffffffffffffffbbbffffffb8888bfffffffffb88bfffffffb88888888888888888bbbbbbffffffbbbb88888888888888888bbfffffb88888888bffffff
-        ffcfffcfffb8bff2f2ffbffffffbbffffffffffffffffffffffbfffeff9fb88bbbfffff5f5fb88bfddfccfb88888888888888888bfffbbfeeffffffb8888888188888888bbffffffbb8888888bffffff
-        ffcfffcfffb8bfffffffbfffffffbffffffffffffffffffffffbfffeff9fb88bfbfffffffffbbbbfffffffbb888888888888888bbfffbbfffffffffbbbbb888888888888bffffffffbb888888bffffff
-        ffcfffcfffb8bffbfbffffffffffbffffffffffffffffffffffbffffffffb88bfffffff6f7fbbfff99f66ffbbbbbb888818888bbffffbbfeeffffffbfffb888888888888bfffffffffb8bbbbbbffffff
-        ffcfffcfffbbfffbfbffffffffffbffffffffffffffffffffffbffffffefb88bfffffffffffbbffffffffffbbfffb888888888bfffffbbfffffffffbfffb888888888888bfffffffffb8bfffbbffffff
-        ffcfffcfffffffffffffffffffffbffffffffffffffffffffffbffffffefb88bfffffffefefbbfffbbfccfffbfffb88888888bbfffffbbfeeffffffbfffb88888888888bbfffffffffbbbfffbfffffff
-        ffcfffcffffffffbf2ffffffffffbffffffffffffffffffffffbffffffffb8bbfffffffffffbbfffffffffffff2fb88888888bffffffbbfffffffffbfffb88888888888bfffffffffffbbfffffffffff
-        ffcfffcffffffffbf2ffffffffffbffffffffffffffffffffffbffffffffb8bffffffff2f6fbbfff99f66fffff2fb88888888bffffffbbfeeffffffbfffbbbbbb8bbbbbbffffffffffffffffffffffff
-        ffcfffcfffffffffffffffffffffbffffffffffffffffffffffbffffffffbbbffffffffffffbbfffffffffffff2fbbbbbbbbbbffffffbbfffffffffbfffbbfffb8bfffbbffffffffffffffffffffffff
-        ffcfffcffffffff2fbffffffffffbffffffffffffffffffffffbffffffffbbfffffffffffffbbfff99fccfffff2fbffffffffbffffffbbfeeffffffbffffbfffbbbfffbbffffffffffffffffffffffff
-        ffcfffcffffffff2fbffffffffffbffffffffffffffffffffffbffffffffbbfffffffffffffbffffffffffffffffbffffffffbffffffbbfffffffffbffffffffbbffffbbffffffffffffffffffffffff
-        ffcfffcfffffffffffffffffffffbffffffffffffffffffffffbfffffffffffffffffffffffbffffbbf66fffffffbffffffffbffffffbbfeeffffffbffffffffffffffbbffffffffffffffffffffffff
-        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbfffffffffbffffffffffffffffffffffffffffffffffffffff
+        88bbfbb888888888888888888888888bbffffffffffcfffbb888888888888888888888888888888888888888888888888888888888888bffffb888888888888888888888888888888888888888888888
+        bbbfffbb8888888888888888888888bbffcff5ff5fffffffbb88888888888888888888888888888888888888888888888888818888888bfeefb8888888888888888888888888bbb88888888888888888
+        bbff4ffbb88888888888888888888bbffffffcfffff5ffcffbb88bbbbb8888888bbbbbb88888888888888888888888888888888888888bffffb888888888888888888188888bbfb8888888888bbbbbbb
+        bfffffffbb88bbbb8888888bbbb88bffffcfffffcfffffffffb88bfffbbbb8888bffffb88888888888888888888888888888888888888bfeefb888888888888888888888888bffbb888888888bffffff
+        fffffffffbb8bffbbbbbb8bbffb8bbf5fffff5ffffffff5fcfbb8bffffffb8888bfcffb888888888bbbbb888888888888888888888888bffffbbb888888888888888888888bbfffbb88888888bf22f9f
+        ffcfffcfffb8bfffffffbbbfffbbbfffff5fffff5ff5fffffffb8bf4ff4fb8888bfcffbbbbbb88bbbfffbbb8888888888888888888888bfeefffb888888888888888888888bfffffb88888888bffffff
+        ffcfffcfffb8bff2f2ffbbfffffbbffcfffff5ffffffff5ffffbbbffffffb8888bfcfffffffb88bfffffffb88888888888888888bbbbbbffff7fbbbb88888888888888888bbf5f5fb88888888bf22f9f
+        ffcfffcfffb8bff2f2ffbffffffbbfffffffffff5ffffffff5fbfffeff9fb88bbbfcfcf5f5fb88bfddfccfb88888888888888888bfffbbfeeffffffb8888888188888888bbff5f5fbb8888888bffffff
+        ffcfffcfffb8bfffffffbfffffffbfffff5ff5fffffcffcffffbfffeff9fb88bfbfcfcfffffbbbbfffffffbb888888888888888bbfdfbbffff7ffffbbbbb888888888888bffffffffbb888888bf22f9f
+        ffcfffcfffb8bffbfbffffffffffbff5ffcfffff5fffffcff5fbffffffffb88bfffcfcf6f7fbbfff99f66ffbbbbbb888818888bbffdfbbfeeffffffbfffb888888888888bfff5f5fffb8bbbbbbffffff
+        ffcfffcfffbbfffbfbffffffffffbffffffffcfffff5fffffffbffffffefb88bfffcfcfffffbbffffffffffbbfffb888888888bfffffbbffff7ffffbfffb888888888888bfff5f5fffb8bfffbbf22f9f
+        ffcfffcfffffffffffffffffffffbfffff5fffff5fffff5ffffbffffffefb88bfffcfcfefefbbfffbbfccfffbfffb88888888bbfdfffbbfeeffffffbfffb88888888888bbfffffffffbbbfffbfffffff
+        ffcfffcffffffffbf2ffffffffffbff5fffffcfffff5fffff5fbffffffffb8bbfffcfcfffffbbfffffffffffff2fb88888888bffdfffbbffff7ffffbfffb88888888888bffff5f5ffffbbffffff22f9f
+        ffcfffcffffffffbf2ffffffffffbfffffcfffff5fffff5ffffbffffffffb8bffffcfcf2f6fbbfff99f66fffff2fb88888888bffffffbbfeeffffffbfffbbbbbb8bbbbbbffff5f5fffffffffffffffff
+        ffcfffcfffffffffffffffffffffbfffffcffffffff5fffff5fbffffffffbbbffffcfcfffffbbfffffffffffff2fbbbbbbbbbbffffffbbffff7ffffbfffbbfffb8bfffbbfffffffffffffffffff22f9f
+        ffcfffcffffffff2fbffffffffffbff5fffff5ff5fffffcffffbffffffffbbfffffcfcf7f3fbbfff99fccfffff2fbffffffffbffffffbbfeeffffffbffffbfffbbbfffbbffff5f5fffffffffffffffff
+        ffcfffcffffffff2fbffffffffffbfffff5ffffffff5fffff5fbffffffffbbfffffcfcfffffbffffffffffffffffbfddddddfbffffffbbffff7ffffbffffffffbbffffbbffff5f5ffffffffffff22f9f
+        ffcfffcfffffffffffffffffffffbff5fffff5ffcfffff5ffffbfffffffffffffffcfcf4fdfbffffbbf66fffffffbffffffffbffffffbbfeeffffffbffffffffffffffbbffffffffffffffffffffffff
+        ffffffffffffffffffffffffffffffffffffffffcfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffbbffff7ffffbfffffffffffffffffffffffffffffffffff22f9f
         ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
         1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
@@ -86,13 +93,13 @@ scene.set_background_image(img("""
         11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc
         11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc
         11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc11cfffffffffc11cffffffffffc11cfffffffffc
-        ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+        cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb2bbbbb
+        bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -153,9 +160,6 @@ scene.set_background_image(img("""
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
         bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-"""))
-tiles.set_current_tilemap(tilemap("""
-    level1
 """))
 music.play(music.create_song(hex("""
         00780004080200
@@ -170,10 +174,21 @@ music.play(music.create_sound_effect(WaveShape.SQUARE,
         SoundExpressionEffect.NONE,
         InterpolationCurve.LOGARITHMIC),
     music.PlaybackMode.UNTIL_DONE)
+game.set_game_over_scoring_type(game.ScoringType.HIGH_SCORE)
 music.play(music.string_playable("C E A E B G C5 E ", 120),
     music.PlaybackMode.UNTIL_DONE)
 
 def on_update_interval():
+    global Stray_cat
+    for index in range(3):
+        Stray_cat = sprites.create_projectile_from_side(assets.image("""
+            Stray cat
+        """), randint(-200, -50), 0)
+        projectile.set_position(124, 86)
+        Stray_cat.follow(mySprite)
+game.on_update_interval(12000, on_update_interval)
+
+def on_update_interval2():
     global projectile
     projectile = sprites.create_projectile_from_side(img("""
             ........222222222222277.........
@@ -197,9 +212,9 @@ def on_update_interval():
         0)
     projectile.set_position(0, 100)
     projectile.set_flag(SpriteFlag.AUTO_DESTROY, True)
-game.on_update_interval(2000, on_update_interval)
+game.on_update_interval(2000, on_update_interval2)
 
-def on_update_interval2():
+def on_update_interval3():
     global projectile
     projectile = sprites.create_projectile_from_side(img("""
             .........772222222222222........
@@ -223,4 +238,4 @@ def on_update_interval2():
         0)
     projectile.set_position(155, 65)
     projectile.set_flag(SpriteFlag.AUTO_DESTROY, True)
-game.on_update_interval(1658, on_update_interval2)
+game.on_update_interval(1658, on_update_interval3)
