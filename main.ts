@@ -1,13 +1,19 @@
 namespace SpriteKind {
     export const Car = SpriteKind.create()
 }
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
-    game.gameOver(false)
-})
-sprites.onDestroyed(SpriteKind.Projectile, function (sprite) {
+sprites.onDestroyed(SpriteKind.Projectile, function (sprite2) {
     info.changeScoreBy(1)
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Projectile, function (sprite, otherSprite) {
+    if (info.life() >= 0) {
+        info.changeLifeBy(-1)
+    }
+})
+info.onLifeZero(function () {
+    game.gameOver(false)
+})
 let projectile: Sprite = null
+let Stray_cat: Sprite = null
 let mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . f f f f f f . . . . . 
@@ -27,7 +33,8 @@ let mySprite = sprites.create(img`
     . . . . f f . . . f f f . . . . 
     `, SpriteKind.Player)
 mySprite.setPosition(20, 82)
-controller.moveSprite(mySprite, 0, 100)
+controller.moveSprite(mySprite, 100, 100)
+info.setLife(3)
 scene.setBackgroundImage(img`
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
     8888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888188
@@ -151,9 +158,17 @@ scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
     `)
 tiles.setCurrentTilemap(tilemap`level1`)
-music.play(music.createSong(hex`0078000408020100001c00010a006400f4016400000400000000000000000000000000050000040e0008000c0002222918001c00022227`), music.PlaybackMode.InBackground)
+music.play(music.createSong(hex`00780004080200`), music.PlaybackMode.InBackground)
 music.play(music.createSoundEffect(WaveShape.Square, 5000, 1, 255, 0, 575, SoundExpressionEffect.None, InterpolationCurve.Logarithmic), music.PlaybackMode.UntilDone)
+game.setGameOverScoringType(game.ScoringType.HighScore)
 music.play(music.stringPlayable("C E A E B G C5 E ", 120), music.PlaybackMode.UntilDone)
+game.onUpdateInterval(12000, function () {
+    for (let index = 0; index < 3; index++) {
+        Stray_cat = sprites.createProjectileFromSide(assets.image`Stray cat`, randint(-200, -50), 0)
+        projectile.setPosition(124, 86)
+        Stray_cat.follow(mySprite)
+    }
+})
 game.onUpdateInterval(2000, function () {
     projectile = sprites.createProjectileFromSide(img`
         ........222222222222277.........
