@@ -126,6 +126,25 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 `;
+            case "image2":
+            case "myImage0":return img`
+. . . . . . . . . . . . . . 3 3 
+. . . . . . . . . . . . . 3 . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . b b b b b b b . . . . . . . 
+. . f f f . f f f b b b b . . . 
+. . f 1 f . f 1 f . . . b b b b 
+. . b f f . f f f . . . . . . . 
+. . b . . . . . b . . . . . . . 
+. . b f . . . b b b b b b . . . 
+. . b b b b b b . b . . b b b b 
+. . . . . . . . b b . . . . b . 
+. . . . . . . . b . . . . . b b 
+. . . . . . . . . . . . . . . b 
+. . . . . . . . . . . . . . . . 
+`;
             case "image3":
             case "Stray cat":return img`
 e e e . . . . e e e . . . . 
